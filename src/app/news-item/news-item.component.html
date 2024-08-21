@@ -1,8 +1,8 @@
 <div class="card">
-    <div class="card-body">
+    <div class="card-body" routerLink="/news-detail/{{newsDetail.publishedAt}}">
         <h5 class="card-title">{{newsDetail.title}}</h5>
         <p class="card-text">{{newsDetail.description}}</p>
         <p class="card-text"><small class="text-muted">{{newsDetail.publishedAt | date: 'longDate'}}</small></p>
-        <button routerLink="/news-detail/{{newsDetail.publishedAt}}" class="btn btn-primary text-white">Read More</button>
+        <button class="btn btn-primary text-white">Read More</button>
     </div>
 </div>
