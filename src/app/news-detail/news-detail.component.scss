@@ -1,0 +1,38 @@
+.news-post-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+
+    .news-detail-title {
+        margin-bottom: 20px;
+    }
+
+    .back-icon {
+        position: absolute;
+        left: 20px;
+        top: 25px;
+        display: inline-block;
+        font-size: 23px;
+        cursor: pointer;
+    }
+
+    .card {
+        display: flex;
+        align-items: center;
+
+        .card-img-top {
+            padding: 5px;
+            border-radius: 10px;
+        }
+    }
+
+    .back-button {
+        text-align: center;
+    }
+}

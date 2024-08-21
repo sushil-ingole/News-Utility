@@ -1,0 +1,40 @@
+<div class="news-list">
+    <div class="news-list-title">
+        <h1>News Articles</h1>
+    </div>
+    <div *ngIf="errorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ errorMsg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <div class="filters">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Enter title to search" (keydown)="onSearch($event)">
+        </div>
+        <div class="mb-3 row align-items-center">
+            <div class="col-auto">
+                <label for="fromdate" class="form-label">From date</label>
+            </div>
+            <div class="col">
+                <input type="date" id="fromdate" class="form-control" [(ngModel)]="fromDate">
+            </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+            <div class="col-auto">
+                <label for="todate" class="form-label">To date</label>
+            </div>
+            <div class="col">
+                <input type="date" id="todate" class="form-control" [(ngModel)]="toDate">
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" [disabled]="!isDateFilterEnabled()" (click)="filterByDate()">Filter by Date</button>
+    </div>    
+    <div class="news-post-list row">
+        <div class="news-post-item col-md-12 mx-auto" *ngFor="let news of filteredNewsList; let i = index">
+            <app-news-item [newsDetail]="news"></app-news-item>
+        </div>
+    </div>
+    <div class="pagination-buttons">
+        <button class="btn btn-primary" (click)="onPrevious()" [disabled]="page === 1">Previous</button>
+        <button class="btn btn-primary" (click)="onNext()">Next</button>
+    </div>
+</div>
