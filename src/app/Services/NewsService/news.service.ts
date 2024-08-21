@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { INewsArticle } from '../../Models/INewsArticle';
 import { IDateCapture } from '../../Models/IDateCapture';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
-  private apiKey = 'd6255252a3334fc8bd1aa6116003c070';
+  private apiKey = environment.apiKey;
   private baseUrl = `https://newsapi.org/v2/everything?q=technology&apiKey=${this.apiKey}`;
   allNewsArticles!: INewsArticle[];
 
