@@ -31,7 +31,7 @@ export class NewsListComponent implements OnDestroy {
   
   fetchNews(fetchLatestData = false, dateRange?: {from: string, to: string}): void {
     if(this.newsService.allNewsArticles?.length && !fetchLatestData) {
-      this.allNews = this.newsService.allNewsArticles;
+      this.allNews = this.filteredNewsList = this.newsService.allNewsArticles;
     } else {
       const date: {from: string, to: string} | undefined = dateRange;
       this.newsSubscription = this.newsService.getNews(this.page, date).subscribe({
